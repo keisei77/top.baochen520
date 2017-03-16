@@ -7,6 +7,19 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
+    top: 0;
+    transition: top .5s;
+    &.leave {
+      top: -100%;
+    }
+  }
+
+
+  .surprise-start {
+    position: fixed;
+    bottom: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .strong {

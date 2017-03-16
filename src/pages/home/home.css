@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
+/* 需配合flexible库使用 */
+.md-theme-default.md-input-container .md-icon:not(.md-icon-delete):after {
+  background: transparent !important;
+}
+.md-snackbar-container {
+  background-color: rgba(50, 50, 50, 0.5) !important;
+}
+.baochen-birthday .placeholder {
+  background: url(../../assets/bgimg.jpg) no-repeat center center;
+  background-size: cover;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  transition: top .5s;
+}
+.baochen-birthday .placeholder.leave {
+  top: -100%;
+}
+.baochen-birthday .surprise-start {
+  position: fixed;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.baochen-birthday .strong {
+  color: #ff0000;
+  font-size: 1rem;
+}

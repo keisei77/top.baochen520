@@ -1,0 +1,11 @@
+#board .wander {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  background-image: url('../../assets/dog-in-dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

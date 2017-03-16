@@ -1,0 +1,15 @@
+.login {
+  background: url(../../assets/login_bgimg.jpg) no-repeat center center / cover;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login .operations {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}

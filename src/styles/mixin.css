@@ -2,23 +2,10 @@
   box-sizing: border-box;
   margin: 0;
 }
-
 html {
   font-size: 62.5%;
 }
 /* 需配合flexible库使用 */
-.font-size(@size: 14px) {
-  font-size: @size;
-
-  [data-dpr="2"] & {
-    font-size: @size * 2;
-  }
-
-  [data-dpr="3"] & {
-    font-size: @size * 3;
-  }
-}
-
 .md-theme-default.md-input-container .md-icon:not(.md-icon-delete):after {
   background: transparent !important;
 }

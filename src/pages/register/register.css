@@ -1,0 +1,13 @@
+.register {
+  background: url(../../assets/register_bgimg.jpg) no-repeat center center / cover;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding: 4rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.register .register-form {
+  text-align: center;
+}

@@ -5,9 +5,14 @@ import App from './App'
 import router from './router'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+import vueTap from 'v-tap'
+import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
+
+Vue.use(VueResource)
 Vue.use(VueMaterial)
+Vue.use(vueTap)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
