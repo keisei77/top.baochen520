@@ -6,7 +6,7 @@ const Dev = {
 }
 
 const Prod = {
-  apiDomain: 'http://23.105.205.168'
+  apiDomain: 'http://ajax.baochen520.top'
 }
 let Env
 if (window.location.href.indexOf('baochen520') > -1 || window.location.href.indexOf('ixiqi') > -1) {
