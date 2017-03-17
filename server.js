@@ -11,7 +11,7 @@ var qiniuUpload = require('./server/utils/qiniuUtil');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/ixiqi');
+mongoose.connect('mongodb://23.105.205.168:27077/ixiqi');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
