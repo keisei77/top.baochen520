@@ -46,6 +46,12 @@ export default {
       userId: ''
     }
   },
+  mounted () {
+    let loginInfo = JSON.parse(window.sessionStorage.getItem('loginInfo'))
+    if (loginInfo) {
+      this.$router.push({ name: 'moments', params: { userId: loginInfo.userId } })
+    }
+  },
   methods: {
     login () {
       if (this.username === '') {
@@ -72,6 +78,11 @@ export default {
           this.tipContent = '登录成功~'
           this.$refs.snackbar.open()
           this.userId = response.user._id
+          let loginInfo = {
+            isLogin: true,
+            userId: this.userId
+          }
+          window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo))
           setTimeout(() => {
             this.$router.push({ name: 'moments', params: { userId: this.userId } })
           }, 1000)
