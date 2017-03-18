@@ -2,12 +2,24 @@
  * Created by KeiSei on 2017/3/5.
  */
 var express = require('express');
+var https = require('https');
+var fs = require('fs');
+var http = require('http');
 var app = express();
 var login = require('./server/account/login');
 var register = require('./server/account/register');
 var publish = require('./server/moments/publish');
 var moments = require('./server/moments/moments');
 var qiniuUpload = require('./server/utils/qiniuUtil');
+
+var privateKey  = fs.readFileSync('/home/ssl/www.baochen520.top.key');
+var certificate = fs.readFileSync('/home/ssl/www.baochen520.top.pem');
+// var credentials = {key: privateKey, cert: certificate};
+
+var options = {
+  key: privateKey,
+  cert: certificate
+};
 
 var mongoose = require('mongoose');
 
@@ -32,4 +44,9 @@ app.use('/api/publish', publish);
 app.use('/api/moments', moments);
 app.use('/api/token', qiniuUpload);
 
-app.listen(3000);
+var httpsServer = https.createServer(options, app);
+var SSLPORT = 3000;
+
+httpsServer.listen(SSLPORT, function() {
+  console.log('HTTPS Server is running on: https://23.105.205.168:%s', SSLPORT);
+});
