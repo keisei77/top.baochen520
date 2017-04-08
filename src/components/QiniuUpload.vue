@@ -35,6 +35,7 @@ export default {
     }
   },
   mounted () {
+    let vm = this
     this.uploader = window.Qiniu.uploader({
       runtimes: 'html5,flash,html4',    // 上传模式,依次退化
       browse_button: 'pickfiles',       // 上传选择的点选按钮，**必需**
@@ -89,20 +90,19 @@ export default {
         }
       }
     })
+    this.uploader.bind('UploadProgress', function () {
+      vm.loading = true
+    })
+    this.uploader.bind('FileUploaded', function (up, file, info) {
+      vm.loading = false
+      let domain = up.getOption('domain')
+      let sourceLink = `${domain}/${JSON.parse(info.response).key}`
+      vm.imgSrc.push(`http://${sourceLink}`)
+      vm.$emit('uploaded', `http://${sourceLink}`)
+    })
   },
   methods: {
     qiniu () {
-      let vm = this
-      this.uploader.bind('UploadProgress', function () {
-        vm.loading = true
-      })
-      this.uploader.bind('FileUploaded', function (up, file, info) {
-        vm.loading = false
-        let domain = up.getOption('domain')
-        let sourceLink = `${domain}/${JSON.parse(info.response).key}`
-        vm.imgSrc.push(`http://${sourceLink}`)
-        vm.$emit('uploaded', `http://${sourceLink}`)
-      })
     }
   }
 }
